@@ -6,5 +6,9 @@ steps:
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'bash'
   args: ['-c',
+         'gcloud app create']
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: 'bash'
+  args: ['-c',
          'gcloud app deploy app.yaml --project=poc-build']
 timeout: '1600s'
