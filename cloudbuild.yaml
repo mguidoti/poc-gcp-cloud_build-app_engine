@@ -1,8 +1,13 @@
 steps:
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  id: 'update timeout'
   entrypoint: 'bash'
   args: ['-c',
-         '""gcloud config set app/cloud_build_timeout 1600',
-         ' && ',
-         'gcloud app deploy app.yaml --project=poc-build""']
+         '""gcloud config set app/cloud_build_timeout 1600']
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  id: 'deploy'
+  entrypoint: 'bash'
+  args: ['-c',
+         'gcloud app deploy app.yaml --project=poc-build']
+  waitFor: 'update timeout'
 timeout: '1600s'

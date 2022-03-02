@@ -1,0 +1,6 @@
+Pipfile*
+.gitignore
+*.md
+__pycache--/
+.vscode/
+test*
