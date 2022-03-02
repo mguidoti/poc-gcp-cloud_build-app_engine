@@ -9,5 +9,5 @@ steps:
   entrypoint: 'bash'
   args: ['-c',
          'gcloud app deploy app.yaml --project=poc-build']
-  waitFor: 'update timeout'
+  waitFor: ['update timeout']
 timeout: '1600s'
